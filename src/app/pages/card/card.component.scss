@@ -1,0 +1,70 @@
+.container{
+    background-color: #197250;
+    border: 1px solid #150aad;
+    width: 450px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 6%;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+.form-control{
+    width: 420px;
+    padding: 10px;
+}
+.form2-control{
+    width: 200px;
+    padding: 10px;
+}
+.top-label{ 
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(7, 7, 7);
+}
+.form2-control-cvv{
+    width: 100px;
+    padding: 10px;
+}
+.parent {
+    display: flex;
+}
+.col-sm-6 {
+    margin-bottom: 10px;
+    width: 100%;
+}
+.top-banner {
+    text-align: center;
+}
+.special{ 
+    color: green !important;
+    font-size: 25px;
+}
+h3 {
+    color: grey !important;
+    font-size: 30px;
+    margin-block-end: 0px !important;
+}
+p{
+    margin-block-start: 0px !important;
+}
+.btn-basic {
+    border: none;
+    background-color: rgb(4, 53, 61);
+    width: 100%;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.btn-basic :focus
+{
+    background-color:  rgb(166, 241, 166);
+}
+small{
+    font-size: 10px;
+    color:red;
+}
+table, th, td {
+    border: 1px solid black;
+  }

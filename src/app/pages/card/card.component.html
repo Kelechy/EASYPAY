@@ -1,0 +1,101 @@
+<div class="main-content">
+    <div class="col-sm-12 top-banner">
+        <h3> <span class="special">ÈASYPAY</span> </h3>
+        <P>..trusted payment platform</P>
+        <hr/>
+    </div>
+    <div class="col-sm-12" style="display: flex; margin-left: 400px; margin-right: 400px;">
+        <div class="col-sm-6" style="margin-left: 100px; margin-right: 100px;">
+            <div class="container">
+                <form [formGroup]="form" (ngSubmit)="pay()">
+                    <div class="col-sm-12">
+                        <h5 style="text-align: center;">Enter your card details to make payment</h5>
+                    </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="top-label">Card Number</label>
+                                <div>
+                                    <input type="text" placeholder="0000 0000 0000 0000 000" onKeyPress="if(this.value.length==18) return false;" class="form-control" formControlName="cardNumber"  />
+                                    <small class="text-danger" 
+                                    *ngIf="form.get('cardNumber').touched && form.get('cardNumber').hasError('required')">Card Number is required</small> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="top-label">Card Holder</label>
+                                <div>
+                                    <input type="text" placeholder="Card Holder" class="form-control" formControlName="cardHolder"  />
+                                    <small class="text-danger" 
+                                    *ngIf="form.get('cardHolder').touched && form.get('cardHolder').hasError('required')">Card Holder is required</small> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 parent">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="top-label">Expire Date</label>
+                                    <div>
+                                        <input type="text" placeholder="MM/YY" class="form2-control" formControlName="expireDate"  />
+                                        <small class="text-danger" 
+                                        *ngIf="form.get('expireDate').touched && form.get('expireDate').hasError('required')">Expire Date is required</small> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group" style="float: right;">
+                                    <label class="top-label">CCV</label>
+                                    <div>
+                                        <input type="tel" placeholder="123"  onKeyPress="if(this.value.length==4) return false;" class="form2-control-cvv" formControlName="ccv"/>
+                                        <small class="text-danger" 
+                                        *ngIf="form.get('ccv').touched && form.get('ccv').hasError('required')">ccv is required</small>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-sm-12 parent">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="top-label">Amount</label>
+                                    <div>
+                                        <input type="text" placeholder="Amount" class="form2-control" formControlName="amount"/>
+                                        <small class="text-danger" 
+                                        *ngIf="form.get('amount').touched && form.get('amount').hasError('required')">Amount is required</small> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-basic" [disabled]="!form.valid">
+                                <span *ngIf="!payStatus">Make Payment</span>
+                                <span *ngIf="payStatus">Procceesing...</span>
+                            </button>
+                        </div>
+                </form>
+            </div>
+        </div>       
+    </div>
+    <div class="col-sm-12" style="display: flex; margin-left: 400px; margin-right: 400px;">
+        <table style="margin-left: 110px; margin-right: 110px;">
+            <thead>
+                <tr>
+                    <th>Card Number</th>
+                    <th>Card Number</th>
+                    <th>Amount</th>
+                    <th>CCV</th>
+                    <th>Expire Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of result">
+                    <td>{{data.cardNumber}}</td>
+                    <td>{{data.cardHolder}}</td>
+                    <td>{{data.amount}}</td>
+                    <td>{{data.ccv}}</td>
+                    <td>{{data.expireDate}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
